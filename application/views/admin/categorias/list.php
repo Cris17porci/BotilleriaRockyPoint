@@ -46,14 +46,15 @@
                                             <td><?php echo $categoria->descripcion; ?></td>
                                             <td>
                                                 <div class="btn-group" style="text-align: right">
-                                                    <a href="#" class="btn btn-info">
-                                                        <span class="fa fa-eye"></span>
-                                                    </a>
-                                                    <button  type="button" data-toggle="modal" data-target="#editModal" onclick="selCategoria('<?php echo $categoria->id; ?>','<?php echo $categoria->nombre; ?>', '<?php echo $categoria->descripcion; ?>')" class="btn btn-warning">
-                                                        <span class="fa fa-edit"></span>
+                                                    <button id="btn-view" type="button" data-toggle="modal" data-target="#viewModal" class="btn btn-view btn-info" value="<?php echo $categoria->id; ?>" >
+                                                        <span class="fa fa-search"></span>
                                                     </button>
-                                                    <a href="#" class="btn btn-danger">
+                                                    <button  type="button" data-toggle="modal" data-target="#editModal" onclick="selCategoria('<?php echo $categoria->id; ?>','<?php echo $categoria->nombre; ?>', '<?php echo $categoria->descripcion; ?>')" class="btn btn-warning">
+                                                        <span class="fa fa-pencil"></span>
+                                                    </button>
+                                                    <button  type="button" data-toggle="modal" data-target="#removeModal" onclick="delCategoria('<?php echo $categoria->id; ?>','<?php echo $categoria->nombre; ?>', '<?php echo $categoria->descripcion; ?>')" class="btn btn-danger">
                                                         <span class="fa fa-remove"></span>
+                                                    </button>
                                                     </a>
                                                 </div>
                                             </td>
@@ -72,5 +73,20 @@
     <!-- /.content -->
 </div>
 
+<div class="modal fade" id="viewModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <h5 class="modal-title">Informacion de la Categoria</h5>
+            </div>
+            <div class="modal-body">
+                <p>One fine body &hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-center" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- /.content-wrapper -->

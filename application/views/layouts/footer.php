@@ -20,6 +20,19 @@
 <script src="<?php echo base_url();?>assets/template/cris/js/modal.js"></script>
 <script>
 $(document).ready(function () {
+	var base_url= "<?php base_url(); ?>";
+	$(".btn-view").on("click", function(){
+		var id = $(this).val();
+		$.ajax({
+			url: base_url + "categorias/view/" + id,
+			type: "POST",
+			success:function(resp){
+				$("#viewModal .modal-body").html(resp);
+				//alert(resp);
+			}
+		});
+
+	});
 $('.sidebar-menu').tree()
 })
 </script>

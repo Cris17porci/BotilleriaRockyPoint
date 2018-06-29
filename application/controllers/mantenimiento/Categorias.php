@@ -24,13 +24,20 @@ class Categorias extends CI_Controller {
 		$this->load->view('layouts/footer');
 		$this->edit();
 		$this->add();
-		
-
+		$this->delete();
 	}
 
 	public function add()
 	{
 		$this->load->view('admin/categorias/add');
+	}
+	public function edit()
+	{
+		$this->load->view('admin/categorias/edit');
+	}
+	public function delete()
+	{
+		$this->load->view('admin/categorias/remove');
 	}
 
 	public function store()
@@ -53,20 +60,11 @@ class Categorias extends CI_Controller {
 
 	}
 
-	public function edit()
-	{
-		
-		$this->load->view('admin/categorias/edit');
-		
-	}
-
 	public function update()
 	{
 		$idCategoria = $this->input->post("idCategoria");
 		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");
-		print_r($idCategoria) ;
-		echo $nombre;
 		$data =  array(
 			'nombre' => $nombre,
 			'descripcion' => $descripcion,
@@ -77,6 +75,30 @@ class Categorias extends CI_Controller {
 		}else{
 			$this->session->set_flashdata("error", "No se pudo actualizar la categoria");
 			redirect(base_url()."mantenimiento/categorias/edit/".$idCategoria);
+
+		}
+	}
+
+	public function view($id){
+
+		$data = array(
+			'categoria' => $this->Categorias_model->getCategoria($id) ,
+		);
+		$this->load->view("admin/categorias/view", $data);
+	}
+
+	public function remove()
+	{
+		$idCategoria = $this->input->post("delIdCategoria");
+		$data =  array(
+			'estado' => 0
+			);
+
+		if ($this->Categorias_model->updateCategoria($idCategoria,$data)) {
+			redirect(base_url()."mantenimiento/categorias");
+		}else{
+			$this->session->set_flashdata("error", "No se pudo actualizar la categoria");
+			redirect(base_url()."mantenimiento/categorias/remove/".$idCategoria);
 
 		}
 	}
