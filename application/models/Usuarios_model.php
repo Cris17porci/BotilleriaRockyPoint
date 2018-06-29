@@ -10,7 +10,6 @@ class Usuarios_model extends CI_Model {
 		$this->db->where("username", $username);
 		$this->db->where("password", $password );
 		$resultados = $this->db->get("usuarios");
-                echo $resultados;
 		if($resultados->num_rows() > 0){
 			return $resultados->row();
 		}else{

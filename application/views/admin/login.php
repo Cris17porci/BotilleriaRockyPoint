@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>Botilleria RockyPoint</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
@@ -27,7 +27,11 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Introduzca sus datos de ingreso</p>
-
+            <?php if($this->session->flashdata("error")): ?>
+            <div class="alert alert-danger" style="text-align: center;">
+              <p><?php echo $this->session->flashdata("error") ?></p>
+            </div>
+            <?php endif; ?>
             <form action="<?php echo base_url(); ?>auth/login" method="post">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Usuario o Rut" name="username">

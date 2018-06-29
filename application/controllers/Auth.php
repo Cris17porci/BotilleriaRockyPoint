@@ -26,6 +26,7 @@ class Auth extends CI_Controller {
 		$res = $this->Usuarios_model->login($username, sha1($password));
 		
 		if (!$res) {
+			$this->session->set_flashdata("error","El Usuario y/o Contraseña son incorrectos");
 			redirect(base_url());
 		}else{
 			$data = array(
