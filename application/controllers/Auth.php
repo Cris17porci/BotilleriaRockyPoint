@@ -21,10 +21,12 @@ class Auth extends CI_Controller {
 	}
 
 	public function login(){
-		$username = $this->input->post("username");
+
+		$username = $this->input->post("rut");
 		$password = $this->input->post("password");
+		echo $username;
+		echo $password;
 		$res = $this->Usuarios_model->login($username, sha1($password));
-		
 		if (!$res) {
 			$this->session->set_flashdata("error","El Usuario y/o Contraseña son incorrectos");
 			redirect(base_url());

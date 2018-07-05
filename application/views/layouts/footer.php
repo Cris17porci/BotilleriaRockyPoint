@@ -10,6 +10,9 @@
 <!-- Datatable -->
 <script src="<?php echo base_url();?>assets/template/table/table.js"></script> 
 <script src="<?php echo base_url();?>assets/template/DataTable/datatables.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url();?>assets/template/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url();?>assets/template/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -18,6 +21,19 @@
 <script src="<?php echo base_url();?>assets/template/dist/js/demo.js"></script>
 <!-- JS CREADOS POR MI -->
 <script src="<?php echo base_url();?>assets/template/cris/js/modal.js"></script>
+<script src="<?php echo base_url();?>assets/template/cris/js/formatRut.js"></script>
+<script>
+  $(function () {
+    $('#idTable').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : false
+    })
+  })
+</script>
 <script>
 $(document).ready(function () {
 	var base_url= "<?php base_url(); ?>";
@@ -36,6 +52,23 @@ $(document).ready(function () {
 $('.sidebar-menu').tree()
 })
 </script>
+<script>
+$(document).ready(function () {
+	var base_url= "<?php base_url(); ?>";
+	$(".btn-view").on("click", function(){
+		var id = $(this).val();
+		$.ajax({
+			url: base_url + "clientes/view/" + id,
+			type: "POST",
+			success:function(resp){
+				$("#viewClientModal .modal-body").html(resp);
+				//alert(resp);
+			}
+		});
 
+	});
+$('.sidebar-menu').tree()
+})
+</script>
 </body>
 </html>

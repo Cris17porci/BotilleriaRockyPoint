@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Categorias
+        <h1>Clientes
         <small>Listado</small>
         </h1>
     </section>
@@ -12,8 +12,8 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#addModal" >
-                        + Agregar Categoria
+                        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#addClienteModal" >
+                        + Agregar Cliente
                         </button>
                     </div>
                     <br><br>
@@ -25,12 +25,14 @@
                 <hr class="col-md-11">
                 <div class="row" style="width: 119% !important;" >
                     <div class="col-md-10" style="    margin-right: -127px !important;" >
-                        <table  class="table table-hover table-bordered results table-sm ">
+                        <table  class="table table-bordered table-hover results table-sm ">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Rut</th>
                                     <th>Nombre</th>
-                                    <th>Descripcion</th>
+                                    <th>Telefono</th>
+                                    <th>Direccion</th>
+                                    <th>Empresa</th>
                                     <th>Opciones</th>
                                 </tr>
                                 <tr class="warning no-result">
@@ -38,21 +40,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if(!empty($categorias)): ?>
-                                    <?php foreach ($categorias as $categoria): ?>
+                                <?php if(!empty($clientes)): ?>
+                                    <?php foreach ($clientes as $cliente): ?>
                                         <tr>
-                                            <td><?php echo $categoria->id; ?></td>
-                                            <td><?php echo $categoria->nombre; ?></td>
-                                            <td><?php echo $categoria->descripcion; ?></td>
+                                            <td><?php echo $cliente->rut; ?></td>
+                                            <td><?php echo $cliente->nombres; ?> <?php echo $cliente->apellidos; ?></td>
+                                            <td><?php echo $cliente->telefono; ?></td>
+                                            <td><?php echo $cliente->direccion; ?></td>
+                                            <td><?php echo $cliente->empresa; ?></td>
                                             <td>
                                                 <div class="btn-group" style="text-align: right">
-                                                    <button id="btn-view" type="button" data-toggle="modal" data-target="#viewModal" class="btn btn-view btn-info" value="<?php echo $categoria->id; ?>" >
+                                                    <button id="btn-view" type="button" data-toggle="modal" data-target="#viewClientModal" class="btn btn-view btn-info" value="<?php echo $cliente->rut; ?>" data-backdrop="static" data-keyboard="false" >
                                                         <span class="fa fa-search"></span>
                                                     </button>
-                                                    <button  type="button" data-toggle="modal" data-target="#editModal" onclick="selCategoria('<?php echo $categoria->id; ?>','<?php echo $categoria->nombre; ?>', '<?php echo $categoria->descripcion; ?>')" class="btn btn-warning">
+                                                    <button   type="button" data-toggle="modal" data-target="#editClientModal" onclick="selCliente('<?php echo $cliente->id; ?>','<?php echo $cliente->rut; ?>','<?php echo $cliente->nombres; ?>', '<?php echo $cliente->apellidos; ?>', '<?php echo $cliente->telefono; ?>', '<?php echo $cliente->direccion; ?>', '<?php echo $cliente->empresa; ?>')" class="btn btn-warning" data-backdrop="static" data-keyboard="false">
                                                         <span class="fa fa-pencil"></span>
                                                     </button>
-                                                    <button  type="button" data-toggle="modal" data-target="#removeModal" onclick="delCategoria('<?php echo $categoria->id; ?>','<?php echo $categoria->nombre; ?>', '<?php echo $categoria->descripcion; ?>')" class="btn btn-danger">
+                                                    <button  type="button" data-toggle="modal" data-target="#removeClientModal" onclick="delCliente('<?php echo $cliente->id; ?>','<?php echo $cliente->rut; ?>','<?php echo $cliente->nombres; ?>', '<?php echo $cliente->apellidos; ?>', '<?php echo $cliente->telefono; ?>', '<?php echo $cliente->direccion; ?>', '<?php echo $cliente->empresa; ?>')" class="btn btn-danger" data-backdrop="static" data-keyboard="false">
                                                         <span class="fa fa-remove"></span>
                                                     </button>
                                                     </a>
@@ -73,11 +77,11 @@
     <!-- /.content -->
 </div>
 
-<div class="modal fade" id="viewModal">
+<div class="modal fade" id="viewClientModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-blue">
-                <h5 class="modal-title">Informacion de la Categoria</h5>
+                <h5 class="modal-title">Informacion del Cliente</h5>
             </div>
             <div class="modal-body">
                 <p>One fine body &hellip;</p>

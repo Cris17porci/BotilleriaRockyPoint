@@ -23,13 +23,12 @@
               <input type="text" class="form-control" id="descripcion" name="descripcion"  value="descripcion">
             </div>
             <div class="modal-footer">
-        <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary pull-left">Actualizar</button>
-      </div>
+              <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary pull-left">Actualizar</button>
+            </div>
           </form>                
         </div>
       </div>
-      
     </div>
   </div>
 </div>

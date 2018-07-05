@@ -13,7 +13,8 @@ class Usuarios_model extends CI_Model {
 		if($resultados->num_rows() > 0){
 			return $resultados->row();
 		}else{
-			$this->db->where("rut", $username);
+			
+			$this->db->where("rut",$username);
 			$this->db->where("password", $password );
 			$resultados = $this->db->get("usuarios");
 			if($resultados->num_rows()>0){
@@ -22,7 +23,5 @@ class Usuarios_model extends CI_Model {
 				return false;
 			}
 		}
-
-
 	}
 }
