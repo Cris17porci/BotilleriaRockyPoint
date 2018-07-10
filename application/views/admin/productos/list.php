@@ -18,7 +18,7 @@
                     </div>
                     <br><br>
                     <div class="form-group pull-right col-md-12" >
-                        <input type="text" id="myInput" class="search form-control" placeholder="Buscar...">  
+                        <input type="text" id="myInput" autofocus  class="search form-control" placeholder="Buscar...">  
                     </div>
                     <span class="counter pull-right"></span>
                 </div>
@@ -52,13 +52,13 @@
                                             <td><?php echo $producto->categoria; ?></td>
                                             <td>
                                                 <div class="btn-group" style="text-align: right">
-                                                    <button id="btn-view" type="button" data-toggle="modal" data-target="#viewProductoModal" class="btn btn-view btn-info" value="<?php echo $producto->codigo; ?>" data-backdrop="static" data-keyboard="false" >
+                                                    <button id="btn-view" type="button" data-toggle="modal" data-target="#viewProductoModal" class="btn btn-view btn-info" value="<?php echo $producto->id; ?>" data-backdrop="static" data-keyboard="false" >
                                                         <span class="fa fa-search"></span>
                                                     </button>
                                                     <button   type="button" data-toggle="modal" data-target="#editProductoModal" onclick="selProducto('<?php echo $producto->id; ?>','<?php echo $producto->codigo; ?>','<?php echo $producto->nombre; ?>', '<?php echo $producto->descripcion; ?>', '<?php echo $producto->precio; ?>', '<?php echo $producto->stock; ?>', '<?php echo $producto->categoria_id; ?>')" class="btn btn-warning" data-backdrop="static" data-keyboard="false">
                                                         <span class="fa fa-pencil"></span>
                                                     </button>
-                                                    <button  type="button" data-toggle="modal" data-target="#removeClientModal" onclick="delProducto('<?php echo $producto->id; ?>','<?php echo $producto->codigo; ?>','<?php echo $producto->nombre; ?>', '<?php echo $producto->descripcion; ?>', '<?php echo $producto->precio; ?>', '<?php echo $producto->stock; ?>', '<?php echo $producto->categoria_id; ?>')" class="btn btn-danger" data-backdrop="static" data-keyboard="false">
+                                                    <button  type="button" data-toggle="modal" data-target="#removeProductoModal" onclick="delProducto('<?php echo $producto->id; ?>','<?php echo $producto->codigo; ?>','<?php echo $producto->nombre; ?>', '<?php echo $producto->descripcion; ?>', '<?php echo $producto->precio; ?>', '<?php echo $producto->stock; ?>', '<?php echo $producto->categoria_id; ?>')" class="btn btn-danger" data-backdrop="static" data-keyboard="false">
                                                         <span class="fa fa-remove"></span>
                                                     </button>
                                                     </a>

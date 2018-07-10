@@ -70,5 +70,23 @@ $(document).ready(function () {
 $('.sidebar-menu').tree()
 })
 </script>
+<script>
+$(document).ready(function () {
+	var base_url= "<?php base_url(); ?>";
+	$(".btn-view").on("click", function(){
+		var id = $(this).val();
+		$.ajax({
+			url: base_url + "productos/view/" + id,
+			type: "POST",
+			success:function(resp){
+				$("#viewProductoModal .modal-body").html(resp);
+				//alert(resp);
+			}
+		});
+
+	});
+$('.sidebar-menu').tree()
+})
+</script>
 </body>
 </html>

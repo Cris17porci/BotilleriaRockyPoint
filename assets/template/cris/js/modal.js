@@ -33,3 +33,16 @@ function delCliente(idCliente,rut,nombres,apellidos,telefono,direccion,empresa){
     $('#delDireccion').val(direccion);
     $('#delEmpresa').val(empresa);        
 };
+
+function delProducto(idProducto,codigo,nombre,descripcion,precio,stock,categoria,empresa){
+    
+    $('#delIdProducto').val(idProducto);
+    $('#delCodigo').val(codigo);
+    $('#delNombre').val(nombre);
+    $('#delDescripcion').val(descripcion);
+    $('#delPrecio').val(precio);
+    $('#delStock').val(stock);  
+    $('#delCategoria').val(categoria);
+    $('#delEmpresa').val(empresa);        
+};
+
